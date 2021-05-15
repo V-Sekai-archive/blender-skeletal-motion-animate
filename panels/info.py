@@ -19,11 +19,16 @@ class InfoPanel(ToolPanel, bpy.types.Panel):
         separator(layout, 0.01)
 
         row = layout.row(align=True)
-        row.label(text='Developed by K. S. Ernest Lee', icon='BLANK1')
+        row.label(text='Developed by K. S. Ernest (iFire) Lee', icon='BLANK1')
         row.scale_y = 0.6
         row = layout.row(align=True)
         row.scale_y = 0.3
-        row.label(text='Based by previous work by Rokoko Electronics ApS', icon='BLANK1')
+        row.label(text='Based by previous work by', icon='BLANK1')
+
+        row = layout.row(align=True)
+        row.scale_y = 0.3
+        row.label(text='Rokoko Electronics ApS', icon='BLANK1')
+
 
         separator(layout, 0.1)
 

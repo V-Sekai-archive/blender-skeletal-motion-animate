@@ -1,10 +1,10 @@
 # Important plugin info for Blender
 bl_info = {
-    'name': 'Skeletal Retargeting for Blender',
+    'name': 'Skeletal Pose Transfer for Blender',
     'author': 'K. S. Ernest (iFire) Lee',
     'category': 'Animation',
-    'location': 'View 3D > Tool Shelf > Skeletal Retargeting',
-    'description': 'Skeletal Retargeting animations',
+    'location': 'View 3D > Tool Shelf > Skeletal Pose Transfer',
+    'description': 'Ttransfer skeletal pose animations',
     'version': (1, 2, 1),
     'blender': (2, 80, 0),
 }
