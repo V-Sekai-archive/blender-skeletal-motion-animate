@@ -34,8 +34,6 @@ classes_always_enable = [  # These non-panels will always be loaded, all non-pan
     panels.info.InfoPanel,
     operators.detector.DetectFaceShapes,
     operators.detector.DetectActorBones,
-    operators.detector.SaveCustomShapes,
-    operators.detector.SaveCustomBones,
     operators.detector.SaveCustomBonesRetargeting,
     operators.detector.ImportCustomBones,
     operators.detector.ExportCustomBones,

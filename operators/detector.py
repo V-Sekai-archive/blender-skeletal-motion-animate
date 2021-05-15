@@ -40,62 +40,6 @@ class DetectActorBones(bpy.types.Operator):
         return {'FINISHED'}
 
 
-class SaveCustomShapes(bpy.types.Operator):
-    bl_idname = "rsl.save_custom_shapes"
-    bl_label = "Save Custom Shapes"
-    bl_description = "This saves the currently selected shapekeys and they will then get automatically detected"
-    bl_options = {'INTERNAL'}
-
-    def execute(self, context):
-        obj = context.object
-
-        # Go over all face shapekeys and see if the user changed the detected shapekey. If yes, save that new shapekey
-        for shape_name_key in animation_lists.face_shapes:
-            shape_name_selected = getattr(obj, 'rsl_face_' + shape_name_key)
-            if not shape_name_selected:
-                continue  # TODO idea: maybe save these unselected choices as well
-
-            shape_name_detected = detection_manager.detect_shape(obj, shape_name_key)
-
-            if shape_name_detected == shape_name_selected:  # This means that the user changed nothing, so don't save this
-                continue
-
-            detection_manager.save_live_data_shape_to_list(shape_name_key, shape_name_selected, shape_name_detected)
-
-        # At the end save all custom shapes to the file
-        detection_manager.save_to_file_and_update()
-
-        return {'FINISHED'}
-
-
-class SaveCustomBones(bpy.types.Operator):
-    bl_idname = "rsl.save_custom_bones"
-    bl_label = "Save Custom Bones"
-    bl_description = "This saves the currently selected bones and they will then get automatically detected"
-    bl_options = {'INTERNAL'}
-
-    def execute(self, context):
-        obj = context.object
-
-        # Go over all actor bones and see if the user changed the detected bone. If yes, save that new bone
-        for bone_name_key in animation_lists.actor_bones.keys():
-            bone_name_selected = getattr(obj, 'rsl_actor_' + bone_name_key)
-            if not bone_name_selected:
-                continue  # TODO idea: maybe save these unselected choices as well
-
-            bone_name_detected = detection_manager.detect_bone(obj, bone_name_key)
-
-            if bone_name_detected == bone_name_selected:  # This means that the user changed nothing, so don't save this
-                continue
-
-            detection_manager.save_live_data_bone_to_list(bone_name_key, bone_name_selected, bone_name_detected)
-
-        # At the end save all custom bones to the file
-        detection_manager.save_to_file_and_update()
-
-        return {'FINISHED'}
-
-
 class SaveCustomBonesRetargeting(bpy.types.Operator):
     bl_idname = "rsl.save_custom_bones_retargeting"
     bl_label = "Save Custom Bones"

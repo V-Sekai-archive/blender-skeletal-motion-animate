@@ -1,8 +1,6 @@
 from mathutils import Quaternion
 from collections import OrderedDict
 
-from . import animations
-
 
 # Face shapekeys
 face_shapes = [
@@ -192,48 +190,3 @@ glove_bones['rightLittleMedial'] = Quaternion((0.5, 0.5, -0.5, 0.5))
 glove_bones['rightLittleDistal'] = Quaternion((0.5, 0.5, -0.5, 0.5))
 # glove_bones['rightLittleTip'] = Quaternion((0.5, 0.5, -0.5, 0.5))
 
-
-# Creates the list of props and trackers for the objects panel
-def get_props_trackers(self, context):
-    choices = [('None', '-None-', 'None')]
-
-    for prop in animations.live_data.props:
-        # 1. Will be returned by context.scene
-        # 2. Will be shown in lists
-        # 3. will be shown in the hover description (below description)
-        prop_name = animations.live_data.get_prop_name(prop)
-        choices.append((animations.live_data.get_prop_id(prop), prop_name, prop_name))
-
-    for tracker in animations.live_data.trackers:
-        tracker_name = animations.live_data.get_prop_name(tracker, is_tracker=True)
-        choices.append((animations.live_data.get_prop_id(tracker, is_tracker=True), tracker_name, tracker_name))
-
-    return choices
-
-
-# Creates the list of faces for the objects panel
-def get_faces(self, context):
-    choices = [('None', '-None-', 'None')]
-
-    for face in animations.live_data.faces:
-        # 1. Will be returned by context.scene
-        # 2. Will be shown in lists
-        # 3. will be shown in the hover description (below description)
-        face_id = animations.live_data.get_face_id(face)
-        choices.append((face_id, face_id, face_id))
-
-    return choices
-
-
-# Creates the list of actors for the objects panel
-def get_actors(self, context):
-    choices = [('None', '-None-', 'None')]
-
-    for actor in animations.live_data.actors:
-        # 1. Will be returned by context.scene
-        # 2. Will be shown in lists
-        # 3. will be shown in the hover description (below description)
-        actor_id = animations.live_data.get_actor_id(actor)
-        choices.append((actor_id, actor_id, actor_id))
-
-    return choices

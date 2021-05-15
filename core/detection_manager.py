@@ -182,50 +182,6 @@ def save_retargeting_to_list():
     save_to_file_and_update()
 
 
-def save_live_data_bone_to_list(bone_key, bone_name, bone_name_previous):
-    global bone_detection_list, bone_detection_list_custom
-
-    if not bone_detection_list_custom.get(bone_key):
-        bone_detection_list_custom[bone_key] = []
-
-    # If the previously detected bone name is in the custom bones list but it got changed, remove it from the list. If the new bone gets detected automatically now, don't add it to the custom list
-    if bone_name_previous.lower() in bone_detection_list_custom[bone_key]:
-        bone_detection_list_custom[bone_key].remove(bone_name_previous.lower())
-        # print('Removed:', bone_name_previous)
-
-        # Update the bone detection list in order to correctly figure out if the new selected bone needs to be saved
-        bone_detection_list = combine_lists(bone_detection_list_unmodified, bone_detection_list_custom)
-
-        bone_name_detected_new = detect_bone(bpy.context.active_object, bone_key)
-        if bone_name_detected_new == bone_name:
-            # print('No need to add new bone to save')
-            return
-
-    bone_detection_list_custom[bone_key] = [bone_name] + bone_detection_list_custom[bone_key]
-
-
-def save_live_data_shape_to_list(shape_key, shape_name, shape_name_previous):
-    global shape_detection_list, shape_detection_list_custom
-
-    if not shape_detection_list_custom.get(shape_key):
-        shape_detection_list_custom[shape_key] = []
-
-    # If the previously detected shape name is in the custom shapes list but it got changed, remove it from the list. If the new shapekey gets detected automatically now, don't add it to the custom list
-    if shape_name_previous.lower() in shape_detection_list_custom[shape_key]:
-        shape_detection_list_custom[shape_key].remove(shape_name_previous.lower())
-        # print('Removed:', shape_name_previous)
-
-        # Update the shapekey detection list in order to correctly figure out if the new selected shapekey needs to be saved
-        shape_detection_list = combine_lists(shape_detection_list_unmodified, shape_detection_list_custom)
-
-        shape_name_detected_new = detect_shape(bpy.context.active_object, shape_key)
-        if shape_name_detected_new == shape_name:
-            # print('No need to add new bone to save')
-            return
-
-    shape_detection_list_custom[shape_key] = [shape_name] + shape_detection_list_custom[shape_key]
-
-
 def save_to_file_and_update():
     save_custom_to_file()
     load_detection_lists()

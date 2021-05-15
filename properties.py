@@ -57,37 +57,3 @@ def register():
         name="Index for the retargeting bone list",
         default=0
     )
-
-    # Objects
-    Object.rsl_animations_props_trackers = EnumProperty(
-        name='Tracker or Prop',
-        description='Select the prop or tracker that you want to attach this object to',
-        items=animation_lists.get_props_trackers,
-        update=state_manager.update_object
-    )
-    Object.rsl_use_custom_scale = BoolProperty(
-        name='Use Custom Scale',
-        description='Select this if the objects scene scaling should be overwritten',
-        default=False,
-    )
-    Object.rsl_custom_scene_scale = FloatProperty(
-        name='Custom Scene Scaling',
-        description="This allows you to scale the position independently from the scene scale.",
-        default=1,
-        precision=3,
-        step=1
-    )
-
-    # Face shapekeys
-    for shape in animation_lists.face_shapes:
-        setattr(Object, 'rsl_face_' + shape, StringProperty(
-            name=shape,
-            description='Select the shapekey that should be animated by this shape'
-        ))
-
-    # Actor bones
-    for bone in animation_lists.actor_bones.keys():
-        setattr(Object, 'rsl_actor_' + bone, StringProperty(
-            name=bone,
-            description='Select the bone that corresponds to the actors bone'
-        ))
