@@ -30,7 +30,6 @@ else:
 
 
 classes_always_enable = [  # These non-panels will always be loaded, all non-panel ui should go in here
-    panels.objects.ObjectsPanel,
     panels.retargeting.RetargetingPanel,
     panels.info.InfoPanel,
     operators.detector.DetectFaceShapes,
