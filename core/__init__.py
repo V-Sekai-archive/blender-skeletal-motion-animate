@@ -9,7 +9,6 @@ if "bpy" not in locals():
     from . import recorder
     from . import retargeting
     from . import detection_manager
-    from . import login
     from . import live_data_manager
 else:
     import importlib
@@ -23,5 +22,4 @@ else:
     importlib.reload(recorder)
     importlib.reload(retargeting)
     importlib.reload(detection_manager)
-    importlib.reload(login)
     importlib.reload(live_data_manager)

@@ -7,7 +7,6 @@ if "bpy" not in locals():
     from . import command_api
     from . import info
     from . import retargeting
-    from . import login
 else:
     import importlib
 
@@ -18,4 +17,3 @@ else:
     importlib.reload(command_api)
     importlib.reload(info)
     importlib.reload(retargeting)
-    importlib.reload(login)
