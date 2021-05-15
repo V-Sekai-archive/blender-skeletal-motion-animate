@@ -1,7 +1,6 @@
 import bpy
 import datetime
 
-from .. import updater, updater_ops
 from ..core import animations
 from ..core import recorder as recorder_manager
 from ..core import receiver as receiver_cls
@@ -36,10 +35,6 @@ class ReceiverPanel(ToolPanel, bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         layout.use_property_split = False
-
-        # box = layout.box()
-        updater.check_for_update_background(check_on_startup=True)
-        updater_ops.draw_update_notification_panel(layout)
 
         col = layout.column()
 

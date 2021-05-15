@@ -3,7 +3,6 @@ from .main import ToolPanel, separator
 from ..operators.login import LoginButton, RegisterButton, ShowPassword
 from ..core import login
 from ..core.icon_manager import Icons
-from .. import updater, updater_ops
 
 
 class LoginPanel(ToolPanel, bpy.types.Panel):
@@ -12,9 +11,6 @@ class LoginPanel(ToolPanel, bpy.types.Panel):
 
     def draw(self, context):
         layout = self.layout
-
-        updater.check_for_update_background(check_on_startup=True)
-        updater_ops.draw_update_notification_panel(layout)
 
         row = layout.row(align=True)
         row.label(text='Sign in with your Rokoko ID:', icon_value=Icons.STUDIO_LIVE_LOGO.get_icon())
