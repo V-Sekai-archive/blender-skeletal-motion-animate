@@ -19,14 +19,6 @@ def register():
         description='This will reset the location and position of animated objects to the state of before starting the receiver',
         default=True
     )
-    Scene.rsl_hide_mesh_during_play = BoolProperty(
-        name='Hide Meshes during Play',
-        description='This will hide all meshes that are animated by armatures'
-                    '\nto greatly reduce lag and increase performance.'
-                    '\nThis will not hide animated faces',
-        default=False,
-        update=state_manager.update_hidden_meshes
-    )
 
     # Retargeting
     Scene.rsl_retargeting_armature_source = PointerProperty(
@@ -72,18 +64,6 @@ def register():
         description='Select the prop or tracker that you want to attach this object to',
         items=animation_lists.get_props_trackers,
         update=state_manager.update_object
-    )
-    Object.rsl_animations_faces = EnumProperty(
-        name='Face',
-        description='Select the face that you want to attach this mesh to',
-        items=animation_lists.get_faces,
-        update=state_manager.update_face
-    )
-    Object.rsl_animations_actors = EnumProperty(
-        name='Actor',
-        description='Select the actor that you want to attach this armature to',
-        items=animation_lists.get_actors,
-        update=state_manager.update_actor
     )
     Object.rsl_use_custom_scale = BoolProperty(
         name='Use Custom Scale',

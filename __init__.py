@@ -30,13 +30,10 @@ else:
     importlib.reload(properties)
 
 
-# List of all buttons and panels
-classes = [  # These panels will only be loaded when the user is logged in
+classes_always_enable = [  # These non-panels will always be loaded, all non-panel ui should go in here
     panels.objects.ObjectsPanel,
     panels.retargeting.RetargetingPanel,
     panels.info.InfoPanel,
-]
-classes_always_enable = [  # These non-panels will always be loaded, all non-panel ui should go in here
     operators.detector.DetectFaceShapes,
     operators.detector.DetectActorBones,
     operators.detector.SaveCustomShapes,
@@ -63,8 +60,6 @@ def register():
     print("\n### Loading Rokoko Studio Live for Blender...")
 
     # Register classes
-    for cls in classes:
-        bpy.utils.register_class(cls)
     for cls in classes_always_enable:
         bpy.utils.register_class(cls)
 
@@ -84,7 +79,7 @@ def unregister():
     print("### Unloading Rokoko Studio Live for Blender...")
 
     # Unregister all classes
-    for cls in reversed(classes + classes_always_enable):
+    for cls in reversed(classes_always_enable):
         try:
             bpy.utils.unregister_class(cls)
         except RuntimeError:
