@@ -13,7 +13,7 @@ class InfoPanel(ToolPanel, bpy.types.Panel):
         layout = self.layout
 
         row = layout.row(align=True)
-        row.label(text='Skeletal Motion Retarget for Blender', icon_value=Icons.STUDIO_LIVE_LOGO.get_icon())
+        row.label(text='Skeletal Motion Retarget', icon_value=Icons.STUDIO_LIVE_LOGO.get_icon())
         row = layout.row(align=True)
         row.scale_y = 0.1
         separator(layout, 0.01)

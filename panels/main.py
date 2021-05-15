@@ -10,9 +10,9 @@ paired_inputs = {}
 
 # Initializes the Rokoko panel in the toolbar
 class ToolPanel(object):
-    bl_label = 'Rokoko'
-    bl_idname = 'VIEW3D_TS_rokoko'
-    bl_category = 'Rokoko'
+    bl_label = 'Pose Transfer'
+    bl_idname = 'VIEW3D_TS_pose_transfer'
+    bl_category = 'Pose Transfer'
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
 
@@ -27,7 +27,7 @@ def separator(layout, scale=1):
 # Main panel of the Rokoko panel
 class ReceiverPanel(ToolPanel, bpy.types.Panel):
     bl_idname = 'VIEW3D_PT_rsl_receiver_v2'
-    bl_label = 'Rokoko Studio Live'
+    bl_label = 'Pose Transfer'
 
     def draw(self, context):
         layout = self.layout
