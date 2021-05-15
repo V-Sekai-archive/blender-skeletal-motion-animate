@@ -34,7 +34,6 @@ else:
 classes = [  # These panels will only be loaded when the user is logged in
     panels.main.ReceiverPanel,
     panels.objects.ObjectsPanel,
-    panels.command_api.CommandPanel,
     panels.retargeting.RetargetingPanel,
     panels.info.InfoPanel,
 ]
@@ -55,11 +54,6 @@ classes_always_enable = [  # These non-panels will always be loaded, all non-pan
     operators.actor.InitTPose,
     operators.actor.ResetTPose,
     operators.actor.PrintCurrentPose,
-    operators.command_api.CommandTest,
-    operators.command_api.StartCalibration,
-    operators.command_api.Restart,
-    operators.command_api.StartRecording,
-    operators.command_api.StopRecording,
     operators.retargeting.BuildBoneList,
     operators.retargeting.ClearBoneList,
     operators.retargeting.RetargetAnimation,

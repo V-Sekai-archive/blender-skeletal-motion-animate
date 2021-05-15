@@ -49,27 +49,6 @@ def register():
         update=recorder.toggle_recording
     )
 
-    # Command API
-    Scene.rsl_command_ip_address = StringProperty(
-        name='IP Address',
-        description='Input the IP address of Rokoko Studio',
-        default='127.0.0.1',
-        maxlen=15
-    )
-    Scene.rsl_command_ip_port = IntProperty(
-        name='Command API Port',
-        description="The port defined in Rokoko Studio",
-        default=14053,
-        min=1,
-        max=65535
-    )
-    Scene.rsl_command_api_key = StringProperty(
-        name='API Key',
-        description='Input the API key displayed in Rokoko Studio',
-        default='1234',
-        maxlen=15
-    )
-
     # Retargeting
     Scene.rsl_retargeting_armature_source = PointerProperty(
         name='Source',
