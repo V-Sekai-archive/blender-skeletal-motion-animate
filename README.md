@@ -46,9 +46,6 @@ In order to retarget an animation in Blender you will need to do the following:
 - In "Use Pose:" select the pose that should be used for retargeting
 - Important: Make sure that both armature are in the same pose for correct retargeting
 - Press "Retarget Animation"
-- Done!
-
-   [<img src="https://img.youtube.com/vi/Od8Ecr70A4Q/maxresdefault.jpg" width="50%">](https://youtu.be/Od8Ecr70A4Q)
 
 ---
  
