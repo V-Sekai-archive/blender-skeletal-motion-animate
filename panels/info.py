@@ -31,9 +31,3 @@ class InfoPanel(ToolPanel, bpy.types.Panel):
 
         row = col.row(align=True)
         row.operator(info.LicenseButton.bl_idname)
-        row.operator(info.RokokoButton.bl_idname)
-        row = col.row(align=True)
-        row.operator(info.DocumentationButton.bl_idname)
-        row = col.row(align=True)
-        row.operator(info.ForumButton.bl_idname)
-

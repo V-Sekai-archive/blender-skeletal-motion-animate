@@ -55,9 +55,6 @@ classes_always_enable = [  # These non-panels will always be loaded, all non-pan
     panels.retargeting.RSL_UL_BoneList,
     panels.retargeting.BoneListItem,
     operators.info.LicenseButton,
-    operators.info.RokokoButton,
-    operators.info.DocumentationButton,
-    operators.info.ForumButton,
 ]
 
 
