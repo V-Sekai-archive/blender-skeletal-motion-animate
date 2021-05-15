@@ -1,13 +1,12 @@
 # Important plugin info for Blender
 bl_info = {
     'name': 'Skeletal Retargeting for Blender',
-    'author': 'Rokoko Electronics ApS',
+    'author': 'K. S. Ernest (iFire) Lee',
     'category': 'Animation',
     'location': 'View 3D > Tool Shelf > Skeletal Retargeting',
     'description': 'Skeletal Retargeting animations',
     'version': (1, 2, 1),
     'blender': (2, 80, 0),
-    'wiki_url': 'https://rokoko.freshdesk.com/support/solutions/folders/47000761699',
 }
 
 beta_branch = False

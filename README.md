@@ -1,8 +1,8 @@
-<h1 align="center">Rokoko Studio Live Plugin for Blender</h1>
-
-[Rokoko Studio](https://www.rokoko.com/en/products/studio) is a powerful and intuitive software for recording, visualizing and exporting motion capture.
+<h1 align="center">Skelttal Retargeting Plugin for Blender</h1>
 
 This plugin lets you retarget animations.
+
+The original repo at https://github.com/Rokoko/rokoko-studio-live-blender is amazing and originated the motion retargeting.
 
 ---
 
