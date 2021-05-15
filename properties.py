@@ -1,7 +1,7 @@
 from bpy.types import Scene, Object
 from bpy.props import IntProperty, StringProperty, EnumProperty, BoolProperty, FloatProperty, CollectionProperty, PointerProperty
 
-from .core import animation_lists, state_manager, recorder, retargeting
+from .core import animation_lists, state_manager, retargeting
 from .panels import retargeting as retargeting_ui
 
 
@@ -26,12 +26,6 @@ def register():
                     '\nThis will not hide animated faces',
         default=False,
         update=state_manager.update_hidden_meshes
-    )
-    Scene.rsl_recording = BoolProperty(
-        name='Toggle Recording',
-        description='Start and stop recording of the data from Rokoko Studio',
-        default=False,
-        update=recorder.toggle_recording
     )
 
     # Retargeting

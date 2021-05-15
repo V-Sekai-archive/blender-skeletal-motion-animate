@@ -1,7 +1,7 @@
 import bpy
 from mathutils import Quaternion, Matrix
 
-from . import animation_lists, recorder
+from . import animation_lists
 from .live_data_manager import LiveData
 
 live_data: LiveData = LiveData()
@@ -56,33 +56,12 @@ def animate_tracker_prop(obj):
         prop['rotation']['z'],
     )
 
-    # Record data
-    if bpy.context.scene.rsl_recording:
-        recorder.record_object(live_data.timestamp, obj.name, obj.rotation_quaternion, obj.location)
-
 
 def animate_face(obj):
     if not hasattr(obj.data, 'shape_keys') or not hasattr(obj.data.shape_keys, 'key_blocks'):
         return
     if not obj.rsl_animations_faces or obj.rsl_animations_faces == 'None':
         return
-
-    # Get the face live data
-    face = live_data.get_face_by_obj(obj)
-    if not face:
-        return
-
-    # Set each assigned shapekey to the value of it's according live data value
-    for shapekey_name in animation_lists.face_shapes:
-        # Get assigned shapekey
-        shapekey = obj.data.shape_keys.key_blocks.get(getattr(obj, 'rsl_face_' + shapekey_name))
-        if shapekey:
-            shapekey.slider_min = -1
-            shapekey.value = face[shapekey_name] / 100
-
-            if bpy.context.scene.rsl_recording:
-                # shapekey.keyframe_insert(data_path='value', group=obj.name)
-                recorder.record_face(live_data.timestamp, obj.name, shapekey_name, shapekey.value)
 
 
 def animate_actor(obj):
@@ -210,10 +189,6 @@ def animate_actor(obj):
                 actor_bone_data['position']['z'] * tpose_hip_location_y / studio_hip_height)
 
             bone.location = location_new
-
-        # Record the data
-        if bpy.context.scene.rsl_recording:
-            recorder.record_bone(live_data.timestamp, obj.name, bone_name_assigned, bone.rotation_euler, location=bone.location if bone_name == 'hip' else None)
 
 
 def animate_glove(obj):

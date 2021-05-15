@@ -2,7 +2,6 @@ import bpy
 import datetime
 
 from ..core import animations
-from ..core import recorder as recorder_manager
 from ..core.icon_manager import Icons
 
 row_scale = 0.75

@@ -32,51 +32,6 @@ possible retargeting of finger animation. All fingers should be straight and the
 
   <img src="https://i.imgur.com/9I13bHI.png"/>
 
-### Enabling Rokoko Studio Live
-- In Rokoko Studio go to settings and click on **Studio Live** in the dropdown menu and enable the Blender data stream. You can customize the streaming address and port by clicking the wrench icon at the top left
-
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47009137268/original/iUPhbfdu2-FVfsBHs_RlWeqyhekQX9_Lbw.png" height="500" /> &nbsp;&nbsp;&nbsp;
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47011953744/original/CxBalqeKrhgesFhgEf69gr4fVNxx3p0ZcQ.gif"/>
-
-### Receiving the Data in Blender
-- In the 3D view press N or the little arrow on the right side, then select the "Rokoko" tab and press "Start Receiver" to start receiving data from Rokoko Studio
-
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47010394035/original/F9BVdJ-P3GjPAqGsOno-it18A0lvyF3n3A.png"/> &nbsp;&nbsp;&nbsp;
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47010394045/original/1E4Pt708FhhoGngovjP7V3CYVaNgNG_J_w.png"/> &nbsp;&nbsp;&nbsp;
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47010394056/original/Um5r_amKNoEJaF8vjF1JgQwVyjztGDtJ5w.png"/>
-
-### Streaming Character Data
-- After starting the receiver select the armature that you want to animate
-- Go into the object category and open the "Rokoko Studio Live Setup" panel
-- In the actor field select the Smartsuit that you want to use for this armature
-- Fill all bone fields by pressing “Auto Detect” and check if all bones are correctly filled in and fill in missing bones if necessary
-- Ensure that the selected armature is in T-Pose and then press “Set as T-Pose”
-
-  <img src="https://i.imgur.com/ydn6cAi.gif"/>
-
-- Done! Your armature should be animated by the live data:
-
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47011948259/original/JDKx_BMV2iDNhqyEk1nsNqsm8zQt2YbT5g.gif" height="500"/>
-
-- Optional: In order to improve animation performance enable “Hide Meshes during Play” in the receiver panel
-
-  <img src="https://i.imgur.com/HESveWD.png"/>
-
-- If you experience any lag while using the plugin, close the window that shows key frames (e.g. timeline or action editor). Blender will run much smoother as the panel takes a lot of resources.
-
-### Streaming Face and Prop Data
-- This uses the exact same workflow as streaming character data
-- Just select the face mesh for face data or the object for prop data and then follow the steps above
-- Done! Your face mesh or prop should now be animated by the live data
-
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47011946440/original/-2ES8ffaPb-jANEBaZWpLzvoy6gDB_FPXQ.gif" height="400"/> &nbsp;&nbsp;&nbsp;
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47011950531/original/LB3AZ4q5IIPOX-WF1mYuuRqeNsWsGY_hgw.gif" height="400"/>
-
-- Note for prop data: After selecting the prop data you can turn on "Use Custom Scale" and change the animation scale for this prop, to make sure it fits your Blender project
-
-  <img src="https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/47011950790/original/vpwUqdfTZJcBryvKjJmUfV0BXKT3kX__eQ.PNG"/>
-
----
 
 ## Retargeting
 In order to retarget an animation in Blender you will need to do the following:
