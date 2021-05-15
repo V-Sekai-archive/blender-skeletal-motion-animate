@@ -12,8 +12,6 @@ class Icons(Enum):
     VP = 'VP'
     PAIRED = 'PAIRED'
     ROKOKO = 'ROKOKO'
-    START_RECORDING = 'RECORD'
-    STOP_RECORDING = 'STOP'
     RESTART = 'RESTART'
     CALIBRATE = 'CALIBRATE'
     STUDIO_LIVE_LOGO = 'STUDIO_LIVE_LOGO'
@@ -37,7 +35,6 @@ def load_icons():
     pcoll.load('VP', os.path.join(icons_dir, 'icon-vp-32.png'), 'IMAGE')
     pcoll.load('PAIRED', os.path.join(icons_dir, 'icon-paired-32.png'), 'IMAGE')
     pcoll.load('ROKOKO', os.path.join(icons_dir, 'icon-rokoko-32.png'), 'IMAGE')
-    pcoll.load('RECORD', os.path.join(icons_dir, 'icon-record-32.png'), 'IMAGE')
     pcoll.load('RESTART', os.path.join(icons_dir, 'icon-restart-32.png'), 'IMAGE')
     pcoll.load('STOP', os.path.join(icons_dir, 'icon-stop-white-32.png'), 'IMAGE')
     pcoll.load('CALIBRATE', os.path.join(icons_dir, 'icon-straight-pose-32.png'), 'IMAGE')
