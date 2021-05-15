@@ -36,20 +36,19 @@ else:
 
 # List of all buttons and panels
 classes = [  # These panels will only be loaded when the user is logged in
-]
-classes_login = [  # These panels will only be loaded when the user is logged out
-
-]
-classes_always_enable = [  # These non-panels will always be loaded, all non-panel ui should go in here
     panels.main.ReceiverPanel,
     panels.objects.ObjectsPanel,
     panels.command_api.CommandPanel,
     panels.retargeting.RetargetingPanel,
     panels.updater.UpdaterPanel,
     panels.info.InfoPanel,
+]
+classes_login = [  # These panels will only be loaded when the user is logged out
     panels.login.LoginPanel,
     panels.updater.UpdaterPanel,
     panels.info.InfoPanel,
+]
+classes_always_enable = [  # These non-panels will always be loaded, all non-panel ui should go in here
     operators.login.LoginButton,
     operators.login.RegisterButton,
     operators.login.ShowPassword,
@@ -119,12 +118,8 @@ def register():
     logged_in = core.login.login_from_cache(classes, classes_login)
 
     # Register classes
-    if logged_in:
-        for cls in classes:
-            bpy.utils.register_class(cls)
-    else:
-        for cls in classes_login:
-            bpy.utils.register_class(cls)
+    for cls in classes:
+        bpy.utils.register_class(cls)
     for cls in classes_always_enable:
         bpy.utils.register_class(cls)
 
