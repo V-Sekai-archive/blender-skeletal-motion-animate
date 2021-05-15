@@ -32,16 +32,11 @@ else:
 
 # List of all buttons and panels
 classes = [  # These panels will only be loaded when the user is logged in
-    panels.main.ReceiverPanel,
     panels.objects.ObjectsPanel,
     panels.retargeting.RetargetingPanel,
     panels.info.InfoPanel,
 ]
 classes_always_enable = [  # These non-panels will always be loaded, all non-panel ui should go in here
-    operators.receiver.ReceiverStart,
-    operators.receiver.ReceiverStop,
-    operators.recorder.RecorderStart,
-    operators.recorder.RecorderStop,
     operators.detector.DetectFaceShapes,
     operators.detector.DetectActorBones,
     operators.detector.SaveCustomShapes,
@@ -90,10 +85,6 @@ def register():
 
 def unregister():
     print("### Unloading Rokoko Studio Live for Blender...")
-
-    # Shut down receiver if the plugin is disabled while it is running
-    if operators.receiver.receiver_enabled:
-        operators.receiver.ReceiverStart.force_disable()
 
     # Unregister all classes
     for cls in reversed(classes + classes_always_enable):

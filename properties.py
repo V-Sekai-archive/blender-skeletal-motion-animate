@@ -6,21 +6,6 @@ from .panels import retargeting as retargeting_ui
 
 
 def register():
-    # Receiver
-    Scene.rsl_receiver_port = IntProperty(
-        name='Streaming Port',
-        description="The port defined in Rokoko Studio",
-        default=14043,
-        min=1,
-        max=65535
-    )
-    Scene.rsl_receiver_fps = IntProperty(
-        name='FPS',
-        description="How often is the data received",
-        default=60,
-        min=1,
-        max=100
-    )
     Scene.rsl_scene_scaling = FloatProperty(
         name='Scene Scaling',
         description="This allows you to scale the position of props and trackers."

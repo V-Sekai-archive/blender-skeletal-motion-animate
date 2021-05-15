@@ -1,8 +1,6 @@
 import bpy
 import copy
 
-from . import receiver
-
 
 class InitTPose(bpy.types.Operator):
     bl_idname = "rsl.init_tpose"
@@ -56,9 +54,6 @@ class ResetTPose(bpy.types.Operator):
     bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
 
     def execute(self, context):
-        if receiver.receiver_enabled:
-            self.report({'ERROR'}, 'Receiver is currently running. Please stop it first.')
-            return {'CANCELLED'}
 
         obj = context.object
         if obj.type != 'ARMATURE':

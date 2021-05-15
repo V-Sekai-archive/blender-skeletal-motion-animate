@@ -1,8 +1,6 @@
 import bpy
 import copy
 
-from ..operators import receiver
-
 objects = {}
 faces = {}
 armatures = {}
@@ -177,8 +175,6 @@ def load_armature(obj):
 
 
 def update_object(self, context):
-    if not receiver.receiver_enabled:
-        return
 
     obj = context.object
     new_state = obj.rsl_animations_props_trackers
@@ -188,48 +184,6 @@ def update_object(self, context):
             save_object(obj)
     else:
         load_object(obj)
-
-
-def update_face(self, context):
-    if not receiver.receiver_enabled:
-        return
-
-    obj = context.object
-    new_state = obj.rsl_animations_faces
-
-    if new_state != 'None':
-        if not faces.get(obj.name):
-            save_face(obj)
-    else:
-        load_face(obj)
-
-
-def update_actor(self, context):
-    if not receiver.receiver_enabled:
-        return
-
-    obj = context.object
-    new_state = obj.rsl_animations_actors
-
-    if new_state != 'None':
-        if not armatures.get(obj.name):
-            save_armature(obj)
-    else:
-        load_armature(obj)
-
-
-def update_glove(self, context):
-    if not receiver.receiver_enabled:
-        return
-
-    obj = context.object
-    new_state = obj.rsl_animations_gloves
-
-    if new_state != 'None':
-        if not armatures.get(obj.name):
-            save_armature(obj)
-    else:
-        load_armature(obj)
 
 
 def hide_meshes_on_play(armature):
@@ -250,23 +204,6 @@ def unhide_meshes_on_stop(armature):
         if not mesh:
             continue
         unhide_mesh(mesh, armature)
-
-
-def update_hidden_meshes(self, context):
-    if not receiver.receiver_enabled:
-        return
-
-    new_state = context.scene.rsl_hide_mesh_during_play
-
-    for armature_name in armatures.keys():
-        armature = bpy.context.scene.objects.get(armature_name)
-        if not armature:
-            continue
-
-        if new_state:
-            hide_meshes_on_play(armature)
-        else:
-            unhide_meshes_on_stop(armature)
 
 
 def hide_mesh(mesh, armature):
