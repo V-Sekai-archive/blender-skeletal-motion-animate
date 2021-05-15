@@ -2,20 +2,14 @@
 
 [Rokoko Studio](https://www.rokoko.com/en/products/studio) is a powerful and intuitive software for recording, visualizing and exporting motion capture.
 
-This plugin lets you stream your animation data from Rokoko Studio directly into Blender. It also allows you to easily record and retarget animations.
+This plugin lets you retarget animations.
 
 ---
 
 ## Requirements
 - Blender **2.80** or higher
-- For live stream data: Rokoko Studio 1.18.0b
 
 ## Features
-- Live stream data:
-    - Up to five actors that can all include both body, face (52 blendshapes) and finger data at the same time
-    - Camera data
-    - Props data
-- Control Rokoko Studio from within Blender
 - Easily retarget motion capture animations
  
 ---
@@ -59,6 +53,10 @@ In order to retarget an animation in Blender you will need to do the following:
 ---
  
 ## Changelog
+
+#### Extracted retargeting module
+
+- Retargeting Module is extracted
 
 #### 1.2.1
 - Fixed login issue when using a Blender UI language other than English
