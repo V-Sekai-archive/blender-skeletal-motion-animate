@@ -1,4 +1,4 @@
-<h1 align="center">Skelttal Retargeting Plugin for Blender</h1>
+<h1 align="center">Skeletal Retargeting Plugin for Blender</h1>
 
 This plugin lets you retarget animations.
 
