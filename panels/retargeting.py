@@ -76,6 +76,11 @@ class RetargetingPanel(ToolPanel, bpy.types.Panel):
 
         self.draw_import_export(layout)
 
+        row = layout.row(align=True)
+        row.scale_y = 1.4
+        row.operator(retargeting.RenameVRMBones.bl_idname, text='Rename VRM Bones', icon_value=Icons.CALIBRATE.get_icon())
+
+
     def draw_import_export(self, layout):
         layout.separator()
 

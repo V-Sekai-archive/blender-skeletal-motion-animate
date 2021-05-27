@@ -46,6 +46,93 @@ class BuildBoneList(bpy.types.Operator):
         return {'FINISHED'}
 
 
+class RenameVRMBones(bpy.types.Operator):
+    bl_idname = "rsl.rename_vrm_bones"
+    bl_label = "Rename VRM Bones"
+    bl_description = "Tries to automatically rename vrm bones"
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
+
+    def execute(self, context):
+        armature_target = get_target_armature()
+
+        if not armature_target:
+            self.report({'ERROR'}, 'No target armature found!'
+                                   '\nSelect an target armature.')
+            return {'CANCELLED'}
+
+        human_bones = [
+            "head",
+            "neck",
+            "rightHand",
+            "rightLowerArm",
+            "rightUpperArm",
+            "rightShoulder",
+            "leftHand",
+            "leftLowerArm",
+            "leftUpperArm",
+            "leftShoulder",
+            "chest",
+            "spine",
+            "upperChest",
+            "rightUpperLeg",
+            "rightLowerLeg",
+            "rightFoot",
+            "leftLowerLeg",
+            "leftUpperLeg",
+            "leftFoot",
+            "hips",
+            "leftToes",
+            "rightToes",
+            "leftEye",
+            "rightEye",
+            "jaw",
+            "leftThumbProximal",
+            "leftThumbIntermediate",
+            "leftThumbDistal",
+            "leftIndexProximal",
+            "leftIndexIntermediate",
+            "leftIndexDistal",
+            "leftMiddleProximal",
+            "leftMiddleIntermediate",
+            "leftMiddleDistal",
+            "leftRingProximal",
+            "leftRingIntermediate",
+            "leftRingDistal",
+            "leftLittleProximal",
+            "leftLittleIntermediate",
+            "leftLittleDistal",
+            "rightThumbProximal",
+            "rightThumbIntermediate",
+            "rightThumbDistal",
+            "rightIndexProximal",
+            "rightIndexIntermediate",
+            "rightIndexDistal",
+            "rightMiddleProximal",
+            "rightMiddleIntermediate",
+            "rightMiddleDistal",
+            "rightRingProximal",
+            "rightRingIntermediate",
+            "rightRingDistal",
+            "rightLittleProximal",
+            "rightLittleIntermediate",
+            "rightLittleDistal",]
+
+        obj = bpy.data.objects[armature_target.name]
+        for prop_id in human_bones:
+            orig_bone = obj.data[prop_id]
+            if not orig_bone:
+                continue
+            pb = armature_target.pose.bones.get(orig_bone)
+            if pb is None:
+                continue
+            pb.name = prop_id
+            obj.data[prop_id] = prop_id
+        
+        bpy.ops.rsl.build_bone_list()
+
+        return {'FINISHED'}
+
+
 class ClearBoneList(bpy.types.Operator):
     bl_idname = "rsl.clear_bone_list"
     bl_label = "Clear Bone List"
