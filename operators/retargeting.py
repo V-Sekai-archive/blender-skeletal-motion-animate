@@ -119,8 +119,9 @@ class RenameVRMBones(bpy.types.Operator):
 
         obj = bpy.data.objects[armature_target.name]
         for prop_id in human_bones:
-            orig_bone = obj.data[prop_id]
-            if not orig_bone:
+            try:
+                orig_bone = obj.data[prop_id]
+            except:
                 continue
             pb = armature_target.pose.bones.get(orig_bone)
             if pb is None:
