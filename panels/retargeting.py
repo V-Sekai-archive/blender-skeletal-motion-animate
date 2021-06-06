@@ -13,7 +13,6 @@ from bpy.props import StringProperty
 class RetargetingPanel(ToolPanel, bpy.types.Panel):
     bl_idname = 'VIEW3D_PT_rsl_retargeting_v2'
     bl_label = 'Retargeting'
-    bl_options = {'DEFAULT_CLOSED'}
 
     def draw(self, context):
         layout = self.layout
