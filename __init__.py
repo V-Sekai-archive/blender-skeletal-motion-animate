@@ -54,8 +54,6 @@ classes_always_enable = [  # These non-panels will always be loaded, all non-pan
 
 # register and unregister all classes
 def register():
-    print("\n### Loading Rokoko Studio Live for Blender...")
-
     # Register classes
     for cls in classes_always_enable:
         bpy.utils.register_class(cls)
@@ -69,12 +67,8 @@ def register():
     # Load bone detection list
     core.detection_manager.load_detection_lists()
 
-    print("### Loaded Rokoko Studio Live for Blender successfully!\n")
-
 
 def unregister():
-    print("### Unloading Rokoko Studio Live for Blender...")
-
     # Unregister all classes
     for cls in reversed(classes_always_enable):
         try:
@@ -85,8 +79,6 @@ def unregister():
     # Unload all custom icons
     core.icon_manager.unload_icons()
 
-    print("### Unloaded Rokoko Studio Live for Blender successfully!\n")
-
-
+    
 if __name__ == '__main__':
     register()
