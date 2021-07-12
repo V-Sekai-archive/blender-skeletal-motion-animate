@@ -5,7 +5,7 @@ This plugin lets you retarget animations.
 The original repo at https://github.com/Rokoko/rokoko-studio-live-blender is amazing and originated the motion retargeting.
 
 ## Requirements
-- Blender **2.83* or higher
+- Blender **2.83** or higher
 
 ## Features
 - Easily retarget motion capture animations
