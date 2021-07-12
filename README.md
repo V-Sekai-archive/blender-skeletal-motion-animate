@@ -1,19 +1,15 @@
-<h1 align="center">Skeletal Retargeting Plugin for Blender</h1>
+# Skeletal Retargeting Plugin for Blender
 
 This plugin lets you retarget animations.
 
 The original repo at https://github.com/Rokoko/rokoko-studio-live-blender is amazing and originated the motion retargeting.
 
----
-
 ## Requirements
-- Blender **2.80** or higher
+- Blender **2.83* or higher
 
 ## Features
 - Easily retarget motion capture animations
  
----
-
 ## Getting Started for Streaming
 
 ### Make sure the model is ready for Studio Live
@@ -26,8 +22,8 @@ possible retargeting of finger animation. All fingers should be straight and the
 
   <img src="https://i.imgur.com/9I13bHI.png"/>
 
-
 ## Retargeting
+
 In order to retarget an animation in Blender you will need to do the following:
 
 - Open the Retargeting panel
@@ -46,41 +42,3 @@ In order to retarget an animation in Blender you will need to do the following:
 - In "Use Pose:" select the pose that should be used for retargeting
 - Important: Make sure that both armature are in the same pose for correct retargeting
 - Press "Retarget Animation"
-
----
- 
-## Changelog
-
-#### Extracted retargeting module
-
-- Retargeting Module is extracted
-
-#### 1.2.1
-- Fixed login issue when using a Blender UI language other than English
-
-#### 1.2.0
-- Added support for the new [Rokoko Smartgloves](https://www.rokoko.com/products/smartgloves)
-- Fixed an issue with the auto-updater which caused updates to fail
- 
-#### 1.1.1
-- Added Retargeting panel
-    - This allows you to easily retarget any animation from one character to another
-    - It uses our auto detect system to automatically find matching bones between the two characters
-- Added the functionality to save, import and export custom naming schemes
-- Added recording timer
-- Reworked saving of recordings
-    - This resulted in heavily improved processing speeds of recorded animations
-    - Recordings no longer need to be split
-    - Recorded animations are now using euler angles instead of quaternion
-      - This allows for easier editing and better continuity of the animation
-- Added patch that fixes the slow import of FBX animations in Blender 2.80 to 2.82
-    - This means that as long as you have this plugin enabled, you will get very fast FBX animation imports
-    - We submitted this patch to Blender officially and it got accepted, so it is included by default in Blender 2.83 and higher (fast imports for everyone, hooray!)
-
-#### 1.0.0
-- First version of Rokoko Studio Live for Blender
-- Character animation and recording
-- Face animation and recording
-- Virtual production animation and recording
-- Studio Command API support.
-- Auto-updater
