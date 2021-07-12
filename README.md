@@ -9,6 +9,7 @@ The original repo at https://github.com/Rokoko/rokoko-studio-live-blender is ama
 
 ## Features
 - Easily retarget motion capture animations
+- VRM Bone renaming
  
 ## Getting Started for Streaming
 
