@@ -2,7 +2,7 @@
 
 This plugin lets you retarget animations.
 
-The original repo at https://github.com/Rokoko/rokoko-studio-live-blender is amazing and originated the motion retargeting.
+This project is derived from https://github.com/Rokoko/rokoko-studio-live-blender.
 
 ## Requirements
 - Blender **2.83** or higher
