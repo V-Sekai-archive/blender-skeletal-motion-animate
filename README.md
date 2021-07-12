@@ -1,4 +1,4 @@
-# Skeletal Retargeting Plugin for Blender
+# Skeletal Motion Animate Plugin for Blender
 
 This plugin lets you retarget animations.
 
