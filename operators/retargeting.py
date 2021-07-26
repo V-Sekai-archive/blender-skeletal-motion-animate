@@ -46,6 +46,151 @@ class BuildBoneList(bpy.types.Operator):
         return {'FINISHED'}
 
 
+class RenameVRMBonesStandard(bpy.types.Operator):
+    bl_idname = "rsl.rename_vrm_bones_standard"
+    bl_label = "Rename VRM Bones Standard"
+    bl_description = "Tries to automatically rename vrm bones"
+    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
+
+    def execute(self, context):
+        armature_target = get_target_armature()
+
+        if not armature_target:
+            self.report({'ERROR'}, 'No target armature found!'
+                                   '\nSelect an target armature.')
+            return {'CANCELLED'}
+
+        human_bones = [
+            "head",
+            "neck",
+            "rightHand",
+            "rightLowerArm",
+            "rightUpperArm",
+            "rightShoulder",
+            "leftHand",
+            "leftLowerArm",
+            "leftUpperArm",
+            "leftShoulder",
+            "chest",
+            "spine",
+            "upperChest",
+            "rightUpperLeg",
+            "rightLowerLeg",
+            "rightFoot",
+            "leftLowerLeg",
+            "leftUpperLeg",
+            "leftFoot",
+            "hips",
+            "leftToes",
+            "rightToes",
+            "leftEye",
+            "rightEye",
+            "jaw",
+            "leftThumbProximal",
+            "leftThumbIntermediate",
+            "leftThumbDistal",
+            "leftIndexProximal",
+            "leftIndexIntermediate",
+            "leftIndexDistal",
+            "leftMiddleProximal",
+            "leftMiddleIntermediate",
+            "leftMiddleDistal",
+            "leftRingProximal",
+            "leftRingIntermediate",
+            "leftRingDistal",
+            "leftLittleProximal",
+            "leftLittleIntermediate",
+            "leftLittleDistal",
+            "rightThumbProximal",
+            "rightThumbIntermediate",
+            "rightThumbDistal",
+            "rightIndexProximal",
+            "rightIndexIntermediate",
+            "rightIndexDistal",
+            "rightMiddleProximal",
+            "rightMiddleIntermediate",
+            "rightMiddleDistal",
+            "rightRingProximal",
+            "rightRingIntermediate",
+            "rightRingDistal",
+            "rightLittleProximal",
+            "rightLittleIntermediate",
+            "rightLittleDistal",]
+
+        human_bones_to_standard = {
+            "head" : "Head",
+            "neck" : "Neck",
+            "rightHand" : "RightHand",
+            "rightLowerArm" : "RightForeArm",
+            "rightUpperArm" : "RightArm",
+            "rightShoulder" : "RightShoulder",
+            "leftHand" : "LeftHand",
+            "leftLowerArm" : "LeftForeArm",
+            "leftUpperArm" : "LeftArm",
+            "leftShoulder" : "LeftShoulder",
+            "chest" : "Chest",
+            "spine" : "Spine",
+            "rightUpperLeg" : "RightUpLeg",
+            "rightLowerLeg" : "RightLeg",
+            "rightFoot" : "RightFoot",
+            "leftLowerLeg" : "LeftLeg",
+            "leftUpperLeg" : "LeftUpLeg",
+            "leftFoot" : "LeftFoot",
+            "hips" : "Hips",
+            "leftToes" : "LeftToeBase",
+            "rightToes" : "RightToeBase",
+            "leftEye" : "LeftEye",
+            "rightEye" : "RightEye",
+            "jaw" : "Jaw",
+            "leftThumbProximal" : "LeftHandThumb1",
+            "leftThumbIntermediate" : "LeftHandThumb2",
+            "leftThumbDistal" : "LeftHandThumb3",
+            "leftIndexProximal" : "LeftHandIndex1",
+            "leftIndexIntermediate" : "LeftHandIndex2",
+            "leftIndexDistal" : "LeftHandIndex3",
+            "leftMiddleProximal" : "LeftHandMiddle1",
+            "leftMiddleIntermediate" : "LeftHandMiddle2",
+            "leftMiddleDistal" : "LeftHandMiddle3",
+            "leftRingProximal" : "LeftHandRing1",
+            "leftRingIntermediate" : "LeftHandRing2",
+            "leftRingDistal" : "LeftHandRing3",
+            "leftLittleProximal" : "LeftHandPinky1",
+            "leftLittleIntermediate" : "LeftHandPinky2",
+            "leftLittleDistal" : "LeftHandPinky3",
+            "rightThumbProximal" : "RightHandThumb1",
+            "rightThumbIntermediate" : "RightHandThumb2",
+            "rightThumbDistal" : "RightHandThumb3",
+            "rightIndexProximal" : "RightHandIndex1",
+            "rightIndexIntermediate" : "RightHandIndex2",
+            "rightIndexDistal" : "RightHandIndex3",
+            "rightMiddleProximal" : "RightHandMiddle1",
+            "rightMiddleIntermediate" : "RightHandMiddle2",
+            "rightMiddleDistal" : "RightHandMiddle3",
+            "rightRingProximal" : "RightHandRing1",
+            "rightRingIntermediate" : "RightHandRing2",
+            "rightRingDistal" : "RightHandRing3",
+            "rightLittleProximal" : "RightHandPinky1",
+            "rightLittleIntermediate" : "RightHandPinky2",
+            "rightLittleDistal" : "RightHandPinky3",
+        }
+
+        obj = bpy.data.objects[armature_target.name]
+        for prop_id in human_bones:
+            try:
+                orig_bone = obj.data[prop_id]
+            except:
+                continue
+            pb = armature_target.pose.bones.get(orig_bone)
+            if pb is None:
+                continue
+            pb.name = human_bones_to_standard[prop_id]
+            obj.data[prop_id] = human_bones_to_standard[prop_id]
+        
+        bpy.ops.rsl.build_bone_list()
+
+        return {'FINISHED'}
+
+
 class RenameVRMBones(bpy.types.Operator):
     bl_idname = "rsl.rename_vrm_bones"
     bl_label = "Rename VRM Bones"
