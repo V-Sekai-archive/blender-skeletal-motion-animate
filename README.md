@@ -1,5 +1,7 @@
 # Skeletal Motion Animate Plugin for Blender
 
+This project is now archived due to creating a Godot retargeting method.
+
 This plugin lets you retarget animations.
 
 This project is derived from https://github.com/Rokoko/rokoko-studio-live-blender.
